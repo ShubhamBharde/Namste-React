@@ -20,23 +20,30 @@ PreRequisite : html, css, js basic knowledege required
 ## React Project Setup without npm create-react-app (cra)
 
 - we can use react, react-dom cdn link in our html page for setup React Project .
-- we create root for react app using ReactDOM.createRoot();
+- we create root for react app using <b>ReactDOM.createRoot()</b>;
 - we can create element using
-  React.createRoot(tagname, attributeObjects, children) :
+  <b>React.createElement(tagname, attributeObjects, children) </b>
+- finally we render using <b>.render()</b> method and in that pass our ReactElement
 
+- Congrats React Library will work for you
 
-  ## Note :-
+## Note :-
+
 - ReactElement gives/returns object not html Element.
- & ReactDOM render() takes the object and convert to html element and put in to DOM.
+  & ReactDOM render() takes the object and convert to html element and put in to DOM.
 
 - React methods:-
-    - React.createElement(tagName, attributeObjects, children)
+
+  - React.createElement(tagName, attributeObjects, children)
 
 - ReactDOM methods:-
-    - ReactDOM.createRoot(document.querySelector("#root")) 
-         - it create react root for dom
 
-    - .render() method takes object from ReactElement and convert html element and putting it dom.
+  - ReactDOM.createRoot(document.querySelector("#root"))
 
-# Remember Permanent ..
+    - it create react root for dom
+
+  - .render() method takes object from ReactElement and convert html element and putting it dom.
+
+### Remember Permanent ..
+
 - root.render() will replace the things to new one.
