@@ -47,3 +47,25 @@ PreRequisite : html, css, js basic knowledege required
 ### Remember Permanent ..
 
 - root.render() will replace the things to new one.
+
+# Episode-2 : Igniting our App
+
+## git commands
+
+- git init
+- git branch -M main
+- git remote add origin main ---> local to remote push only once use for setup
+- git clone "httpsLink" ---> remote to local fetch
+- git add .
+- git commit -m "msg"
+- git push -u origin main
+- git status
+
+## git
+
+- it is a tool used for tracking & manage codebase
+
+## github
+
+- it is a place where all git repository are hosted by using git tool.
+
