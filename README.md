@@ -69,3 +69,28 @@ PreRequisite : html, css, js basic knowledege required
 
 - it is a place where all git repository are hosted by using git tool.
 
+## npm - package manager
+
+npm is package manager that will manage all packages but not stand/abbrevation as node package manager
+
+- npm init - for setup package manager
+- package.json - it is configuration file for npm
+
+## bundler
+
+- it is take the whole code and gives production code which is optimized, remove comments, minifying the code & compress file that will do bundler
+
+### bundler ex :-
+
+1. webpack
+2. parcel
+3. vite
+
+## dependency :-
+
+- dev dependency
+
+  - it dependency required for development only not in production.
+
+- normal dependecy
+  - it dependency required for development &production both.
