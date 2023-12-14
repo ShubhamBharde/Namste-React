@@ -1,0 +1,30 @@
+{
+  "name": "namste-react",
+  "version": "1.0.0",
+  "description": "this is Namste React Webseries by Akshay Saini sir",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShubhamBharde/Namste-React.git"
+  },
+  "author": "Shubham Bharde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShubhamBharde/Namste-React/issues"
+  },
+  "homepage": "https://github.com/ShubhamBharde/Namste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "browserslist": "^4.22.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ]
+}

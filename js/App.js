@@ -1,3 +1,5 @@
+import React from "react";
+import  ReactDOM  from "react-dom/client";
 // console.log(React, ReactDOM) // React is just object not a new thing.. 🚀 do you know that in js everything is object.
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // react-dom root

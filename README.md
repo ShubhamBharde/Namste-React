@@ -50,6 +50,14 @@ PreRequisite : html, css, js basic knowledege required
 
 # Episode-2 : Igniting our App
 
+## git
+
+- it is a tool used for tracking & manage codebase.
+
+## github
+
+- it is a place where all git repository are hosted.
+
 ## git commands
 
 - git init
@@ -61,24 +69,20 @@ PreRequisite : html, css, js basic knowledege required
 - git push -u origin main
 - git status
 
-## git
-
-- it is a tool used for tracking & manage codebase
-
-## github
-
-- it is a place where all git repository are hosted by using git tool.
-
 ## npm - package manager
 
-npm is package manager that will manage all packages but not stand/abbrevation as node package manager
+npm is package manager that will manage all packages, but funfact it does not stand as a node package manager 😂.
 
-- npm init - for setup package manager
-- package.json - it is configuration file for npm
+### npm is repository where all packages hosted over there.
 
-## bundler
+- npm init :- for setup npm & after setup it gives package.json
+- package.json :- it is configuration file for npm & it take & tells version of that package which is dependent on our Project.
 
-- it is take the whole code and gives production code which is optimized, remove comments, minifying the code & compress file that will do bundler
+## bundler : - used for Production Ready purpose
+
+- it is take the whole code and gives bundle of code for production ready which is optimized, removing comments & console, minifying the code & code splitting , chunking & compress file that will do bundler for us.
+
+- behind the scene create-react-app has own bundler which is Webpack
 
 ### bundler ex :-
 
@@ -88,9 +92,77 @@ npm is package manager that will manage all packages but not stand/abbrevation a
 
 ## dependency :-
 
+sometimes package also know as dependency, beacuse our project is dependent on lot of package/ library.
+
+### types of dependency :-
+
 - dev dependency
 
-  - it dependency required for development only not in production.
+  - dependency which required for development only not in production.
 
 - normal dependecy
-  - it dependency required for development &production both.
+  - it dependency required for development & production both.
+
+## node modules :-
+
+- node modules are collection of dependency.
+- node modules contains all the code that we fetch from npm.
+
+it is like database in that all package exist that we need
+
+## Transitive dependency :-
+
+it is dependency dependent on some other dependency and thats has another dependency so lot going on..
+
+## Should i put node_modules in git, github, production :-
+
+big No, thats why we use <b>.gitignore </b> which will ignore the node_modules
+
+note :- node modules are regenerative so dont push on github.
+
+## Difference between package.json & package-lock.json :-
+
+- package.json file has note approximate version of dependency
+
+- package-lock.json file locking exact version of that dependency
+
+## npx :- it will executes package
+
+## parcel is beast :-
+
+it is bundler that can i used for my project
+
+### executing parcel command :-
+
+- npx parcel index.html
+
+## What What are doing Parcel :-
+
+- dev build
+- local server
+- HMR (Hot Module Replacement) --> Automatic Refresh
+- file watching algorithm
+- Caching for faster bulds
+- image optimization
+- minification
+- bundling
+- compress
+- code splitting
+- Differential bundling --> Support Older Browsers
+- Error Handling
+- Tree Shaking --> remove unused code
+- different dev & prod bundles
+
+### thats why Parcel is Beast
+
+## Cross Browser Compatibilty :-
+
+- we use browserlist package for issue of different browser compatibilty.
+
+- in package.json we just configure browserlist package
+
+```javascript
+  "browserslist": [
+    "last 10 versions"
+  ]
+```
