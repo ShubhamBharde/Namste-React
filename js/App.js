@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import TitleComponent from "./TitleComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // react-dom root
 
 // jsx syntax use for readabilty & easy to use
 const jsxNestedElement = (
   <>
+    <TitleComponent />
     <div id="parent">
       <h1 id="child"> Heading 1</h1>
     </div>

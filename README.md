@@ -197,3 +197,30 @@ it is bundler that can i used for my project
 - Babel package
 
 - Babel just takes jsx and transpile to React.createElement(). now its responsibilty of core react that gives object.
+
+## React Component :-
+
+- Class based component --> old way
+- Functional component --> latest way
+
+## React Functional Component :-
+
+it's just a normal javascript function which return jsx/ ReactElement.
+
+- behind the scene, jsx is convert to ReactElement by Babel.
+
+- Always use PascalCase for React Function components.
+
+### How will use Functional component :-
+
+```javascript
+// babel knows it is functional component that return jsx & convert to ReactElement which is object.
+
+<Component />
+```
+
+## Component Composition :-
+
+- it means use our <b>Component inside other Component</b> called as Component Composition.
+
+- it make your component to reuseable. --> not new thing bcz in js always function use for reuseability.
