@@ -194,7 +194,7 @@ it is bundler that can i used for my project
 
 ### Who is convert jsx to ReactElement ?
 
-- Babel package
+- Babel package --> manage by bundler 
 
 - Babel just takes jsx and transpile to React.createElement(). now its responsibilty of core react that gives object.
 
@@ -216,7 +216,9 @@ it's just a normal javascript function which return jsx/ ReactElement.
 ```javascript
 // babel knows it is functional component that return jsx & convert to ReactElement which is object.
 
-<Component />
+<Component /> 
+<Component> </Component>
+Component()
 ```
 
 ## Component Composition :-
@@ -224,3 +226,25 @@ it's just a normal javascript function which return jsx/ ReactElement.
 - it means use our <b>Component inside other Component</b> called as Component Composition.
 
 - it make your component to reuseable. --> not new thing bcz in js always function use for reuseability.
+
+## JSX SuperPower :-
+
+- you can put any js code inside jsx using {} to prevent from jsx.
+
+- <h3>writing js code inside of jsx is a very powerful thing, don't underistimate. </h3>
+
+- babel does all jsx code convert to React code 🤘
+
+### peoples say jsx is mix of html & js ..😂
+
+- <b> big No, jsx is html like syntax not a html</b>
+
+## End of the Day ✅ :-
+
+- React is js code EOD(end of day).
+
+- ReactElement is object EOD.
+
+- JSX is ReactElement EOD.
+
+- Function Component is just js Function EOD.
