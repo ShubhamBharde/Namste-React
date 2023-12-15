@@ -166,3 +166,34 @@ it is bundler that can i used for my project
     "last 10 versions"
   ]
 ```
+
+# Episode-3 : Laying the Foundation
+
+## npm script :-
+
+```javascript
+ "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+```
+
+## JSX :- html/xml like syntax
+
+- it's html like syntax but its not html element, it is jsx convention.
+
+- react and jsx are both different .. means jsx is not part of core React.
+
+- our bundler has babel dependency that understand jsx & convert to ReactElement.
+
+## Babel :- js compiler
+
+- some browser does not understand newer javascript code, that time babel does take our ES6+ code and gives browser compatibilty code.
+
+- i loves <b> Babel </b> ❤️ for doing browser compatibilty.
+
+### Who is convert jsx to ReactElement ?
+
+- Babel package
+
+- Babel just takes jsx and transpile to React.createElement(). now its responsibilty of core react that gives object.
