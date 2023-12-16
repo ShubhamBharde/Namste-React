@@ -267,3 +267,19 @@ Component()
 - <b> style = { { backgroundColor : "gray", fontSize : "24px" } } </b>:-
 
   - first { } use for js code & prevent from jsx & another { } is object
+
+## Design Food Ordering App :-
+
+- Header
+
+  - Logo
+  - NavItems
+
+- Body
+
+  - Search
+  - RestroCardContainer
+    - RestroCard
+
+- Footer
+  - Copyright
