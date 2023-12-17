@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 1rem;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    width: 150px;
+}
+
+.navItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    list-style: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* body starts */
+.body {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.search {
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search input,
+.search button {
+    padding: 0.7rem;
+    outline: none;
+    border: 0;
+    font-size: 1.3rem;
+}
+
+.search button {
+    background: green;
+    color: #fff;
+    border-bottom-right-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+/* restroCard Starts */
+.restroCard {
+    width: 230px;
+    background-color: #dbdbdb;
+    padding: 1rem;
+    transition: all ease-in 1s;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.restroCard:hover {
+    border: 1px solid black;
+}
+
+.restroCard img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.restroCard h3 {
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.restroCard div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* @media (){} */
+    

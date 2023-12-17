@@ -264,7 +264,9 @@ Component()
 
 ### in jsx, how we look/put Inline Style :-
 
-- <b> style = { { backgroundColor : "gray", fontSize : "24px" } } </b>:-
+- <b> style = { { backgroundColor : "gray", fontSize : "24px" } } :- </b>
+
+  - it is not inline css style, it's js object
 
   - first { } use for js code & prevent from jsx & another { } is object
 
@@ -283,3 +285,11 @@ Component()
 
 - Footer
   - Copyright
+
+## props : -
+
+- it is short name of properties & returns object
+
+- always pass from parent component/ element.
+
+- EOD, props are just passing normal argument to function.
