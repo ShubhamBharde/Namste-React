@@ -254,7 +254,10 @@ Component()
 ## How the build large project :-
 
 - Planning :
-  - once you will planning then write a code is easy for you, so first build mock, wireframe .
+
+  - before writing a code, you just plan how to build app skelton
+
+  - then writing a code is easy for you, so first build mock, wireframe.
 
 ## Note :-
 
@@ -293,3 +296,27 @@ Component()
 - always pass from parent component/ element.
 
 - EOD, props are just passing normal argument to function.
+
+## Config Driven UI :-
+
+- our web-app is driven by config data :-
+
+  - it means different city have different UI , ProductCards, Caraousel & Offers
+
+  - config data comes from backend
+
+## How Frontend Application Builds :-
+
+- UI Layer --> makes static website
+
+- Data Layer --> makes dynamic web-app
+
+### UI is Powered by Data
+
+## key :- used for Optimization of React Cycle
+
+- whenever you are iterate things using map() or loop, that time, pass the <b> key </b> as a prop for unique identification in React.
+
+- When you don't pass a key in React, React Cycle re-renders everything because it doesn't recognize a unique ID.
+
+- React recommended that never use indexes as a key, it is a bad practice.
