@@ -323,11 +323,13 @@ Component()
 
 # Episode-5 : Let's get Hooked
 
-## Two types of export in React:-
+## Two types of Export & Import in React:-
 
-- Default Export :- use for only one export
+- Default Export & Import :- use for only one export
 
-  - export default component
+  - export default Component
+  - import component from "path"
 
-- Name Export :- use for Multiple export in one component
-  - export component
+- Name Export & Import :- use for Multiple export in one component
+  - export Component
+  - import { Component, AnotherComponent } from "path"
