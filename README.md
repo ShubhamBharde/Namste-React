@@ -320,3 +320,14 @@ Component()
 - When you don't pass a key in React, React Cycle re-renders everything because it doesn't recognize a unique ID.
 
 - React recommended that never use indexes as a key, it is a bad practice.
+
+# Episode-5 : Let's get Hooked
+
+## Two types of export in React:-
+
+- Default Export :- use for only one export
+
+  - export default component
+
+- Name Export :- use for Multiple export in one component
+  - export component
