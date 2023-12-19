@@ -1,7 +1,7 @@
 import React from "react";
 
 const RestroCard = ({ resData }) => {
-  console.log(resData);
+  // console.log(resData);
 
   const {
     name,

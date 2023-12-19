@@ -73,13 +73,18 @@ body {
     width: 270px;
     background-color: #dbdbdb;
     padding: 1rem;
-    transition: all ease-in 1s;
+    transition: all ease-in 500ms;
     border-radius: 15px;
     cursor: pointer;
 }
 
 .restroCard:hover {
     border: 1px solid black;
+}
+
+.restroCard:hover img {
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
 .restroCard img {
