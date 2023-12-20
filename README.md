@@ -328,8 +328,86 @@ Component()
 - Default Export & Import :- use for only one export
 
   - export default Component
-  - import component from "path"
+  - import Component from "path"
 
-- Name Export & Import :- use for Multiple export in one component
+- Name Export & Import :- use for Multiple export in one component/file
   - export Component
   - import { Component, AnotherComponent } from "path"
+
+## Can i use default export along with name export ?
+
+- ### yes, you can but default export is only one.
+
+## Features :-
+
+- ### Filter of Top Rated Restraurants
+
+## Normal Js Variables in React :-
+
+- if we use normal js variables in react, then it don't update/modify our UI/UI State.
+
+## State Variable :- Superpowerful local variable in react
+
+- it is like react variable when state is updated that time it will updated our UI.
+
+- state variables created by hooks of useState() hook.
+
+- whenever a state variable updated , react will re-render that component & update our UI & it's so so fast
+
+## Hooks :- Normal js Utility Functions
+
+- hook is just normal js utility function which is given by react.
+
+- that functions are behind the scene some logic which we use as utility function.
+
+### useState() Hook :-
+
+- ### useState() :- Superpowerful state variables
+
+  - used for create local State Variables in react function component
+
+  - it gives array of two element:-
+
+    - initial state
+
+    - function that updated our state automagically.
+      - it needs trigger to start diff algorithm... thats why we use state variables.
+
+
+## React Two Layer :-
+
+- UI Layer
+
+- Data Layer
+
+- React will keep your UI layer & sync with Data layer
+
+- when Data layer Modifiy react re-render component and quickly updated UI, bcz UI layer is Powered by Data layer
+
+## Logic of UI Update in React ?
+
+- ### simple it will re-render of that component.
+
+## Why React is Fast ?
+
+- React can do fast & efficient DOM Manipulation.
+
+- it has virtual DOM that is EOD Object.
+
+  - Virtual DOM :- representation of an actual DOM, but it is faster than actual DOM.
+
+- Diff algorithm :- it is difference between two virtual DOM.
+
+  - it find difference between new virtual dom & old virtual dom & actual update DOM on every render cycle.
+
+- React Reconciliation / React Fiber
+
+  - Reconcillation :- whenever something changes on ui this is known as Reconsillation.
+
+  - React Fiber :-
+    - it is Re-Implementation of React core algorithm.
+    - it is new way of finding the Diff & Actually updating the DOM.
+    - it is does not touch html alot
+    - React Fiber comes in react 16 which year of 2017
+
+- In short, Every Re-Rendering React will finding diff of two virtual DOM & Update the Original DOM.. thats why React is so Fast .

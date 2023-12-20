@@ -114,4 +114,15 @@ body {
     font-size: 1rem;
 }
 
+#topRatedRestroBtn {
+
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: #000;
+    color: #fff;
+    margin: 0 auto 2rem  ;
+    display: block;
+    cursor: pointer;
+}
+
 /* @media (){} */

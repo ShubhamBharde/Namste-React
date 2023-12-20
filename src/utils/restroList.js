@@ -1,4 +1,4 @@
-const restroData = [
+const restroList = [
   {
     type: "restaurant",
     info: {
@@ -3728,4 +3728,4 @@ const restroData = [
   },
 ];
 
-export default restroData;
+export default restroList;
