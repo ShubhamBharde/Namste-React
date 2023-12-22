@@ -19,7 +19,7 @@ body {
 }
 
 .logo {
-    width: 150px;
+    width: 120px;
 }
 
 .navItems {
@@ -111,7 +111,14 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
-    font-size: 1rem;
+}
+
+.restroCard div h4 {
+    font-size: 1.1rem;
+}
+
+.restroCard h4 {
+    font-size: 1.25rem;
 }
 
 #topRatedRestroBtn {
@@ -120,9 +127,38 @@ body {
     font-size: 1.2rem;
     background: #000;
     color: #fff;
-    margin: 0 auto 2rem  ;
+    margin: 0 auto 2rem;
     display: block;
     cursor: pointer;
 }
+
+/* shimmer ui starts */
+.shimmerRestroCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shimmerRestroCard {
+    width: 240px;
+    height: 350px;
+    background-color: rgb(192, 192, 192);
+    /* padding: 1rem 2rem; */
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.shimmerBtn {
+    width: 220px;
+    height: 50px;
+    text-align: center;
+    background-color: rgb(207, 207, 207);
+    display: block;
+    margin: 1rem auto;
+    outline: none;
+    border: 0;
+}
+
+/* shimmer ui ends */
 
 /* @media (){} */
