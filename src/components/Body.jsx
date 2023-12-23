@@ -3,9 +3,13 @@ import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [topRatedRestaurant, setTopRatedRestaurant] = useState([]);
+  // very imp logic --> don't update ever filterRestro state.. it have whole important data ..only filter purpose use it.
+  const [searchRestro, setSearchRestro] = useState([]);
+  const [filterRestro, setFilterRestro] = useState([]);
+  const [userSearchText, setUserSearchText] = useState("");
+  // console.log(searchRestro)
 
-  // component render then call callback function of useEffect() hook
+  // first component render then call callback function of useEffect() hook
   useEffect(() => {
     fetchData();
   }, []);
@@ -24,7 +28,7 @@ const Body = () => {
   //       )[0].card.card.gridElements.infoWithStyle.restaurants;
 
   //       // console.log(restroCards);
-  //       setTopRatedRestaurant(restroCards);
+  //       setFilterRestro(restroCards);
   //     })
   //     .catch((err) => {
   //       alert("Something Went Wrong! After Some time please check Again...");
@@ -47,7 +51,8 @@ const Body = () => {
       )[0].card?.card?.gridElements?.infoWithStyle?.restaurants;
 
       // console.log(restroCards);
-      setTopRatedRestaurant(restroCards);
+      setSearchRestro(restroCards);
+      setFilterRestro(restroCards);
     } catch (err) {
       alert("Something Went Wrong! After Some time please check Again...");
       console.error("Error is " + err);
@@ -55,35 +60,62 @@ const Body = () => {
   };
 
   // Shimmer UI effect logic: way 1
-  if (topRatedRestaurant.length === 0) return <Shimmer />;
+  if (filterRestro.length === 0) return <Shimmer />;
 
   // Shimmer Ui effect logic: way2
-  return topRatedRestaurant.length === 0 ? (
+  return filterRestro.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      {/* <div className="search">
-        <input type="text" placeholder="Search Restro / Food" />
-        <button>Search</button>
-      </div> */}
+      <div id="featureBox">
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search Restro / Cusines"
+            value={userSearchText}
+            onChange={(e) => setUserSearchText(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              // console.log(userSearchText);
+              const filterSearchData = filterRestro.filter(
+                (restro) =>
+                  restro.info.name
+                    .toUpperCase()
+                    .includes(userSearchText.toUpperCase()) ||
+                  restro.info.cuisines
+                    .slice(0, 3)
+                    .join(", ")
+                    .toLowerCase()
+                    .includes(userSearchText.toLowerCase())
+              );
+              // console.log(filterSearchData);
+              setSearchRestro(filterSearchData);
+            }}
+          >
+            Search
+          </button>
+        </div>
 
-      <div>
-        <button
-          id="topRatedRestroBtn"
-          onClick={() => {
-            // console.log(topRatedRestaurant)
-            const topRatedRestro = topRatedRestaurant.filter(
-              (restro) => restro.info.avgRating > 4.2
-            );
-            setTopRatedRestaurant(topRatedRestro);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="filter">
+          <button
+            id="topRatedRestroBtn"
+            onClick={() => {
+              // console.log(topRatedRestaurant)
+              const topRatedRestro = filterRestro.filter(
+                (restro) => restro.info.avgRating > 4.2
+              );
+
+              setSearchRestro(topRatedRestro);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
       <div className="restroCardContainer">
-        {topRatedRestaurant.map((restro) => (
+        {searchRestro.map((restro) => (
           <RestroCard resData={restro} key={restro.info.id} />
         ))}
       </div>

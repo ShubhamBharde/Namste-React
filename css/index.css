@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -25,23 +26,42 @@ body {
 .navItems {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 5rem;
     list-style: none;
     font-size: 1.8rem;
     cursor: pointer;
 }
 
+.navBtn {
+    padding: 0.5rem 1rem;
+    font-size: 1.7rem;
+    background: #000;
+    color: orange;
+    border: 0;
+    cursor: pointer;
+}
+
 /* body starts */
 .body {
     background-color: #f0f0f0;
-    padding: 2rem 0;
+    padding: 1.7rem 0;
+}
+
+#featureBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    row-gap: 1.2rem;
+    column-gap: 2rem;
 }
 
 .search {
-    /* display: flex; */
-    /* justify-content: center; */
-    text-align: center;
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search input,
@@ -52,11 +72,29 @@ body {
     font-size: 1.3rem;
 }
 
+.search input {
+    color: #000;
+    font-weight: 600;
+}
+
 .search button {
-    background: green;
-    color: #fff;
+    background: rgb(231, 150, 0);
+    color: #000;
+    font-weight: 600;
     border-bottom-right-radius: 14px;
     border-top-right-radius: 14px;
+}
+
+#topRatedRestroBtn {
+    padding: 0.7rem;
+    font-size: 1.3rem;
+    background: #000;
+    color: orange;
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 /* restroCard Starts */
@@ -73,18 +111,18 @@ body {
     width: 270px;
     background-color: #dbdbdb;
     padding: 1rem;
-    transition: all ease-in 500ms;
+    /* transition: all ease-in 500ms; */
     border-radius: 15px;
     cursor: pointer;
 }
 
 .restroCard:hover {
-    border: 1px solid black;
+    border: 1px solid #b6b1b1;
 }
 
 .restroCard:hover img {
     object-fit: cover;
-    margin-bottom: 1rem;
+    transition: all ease-in 1s;
 }
 
 .restroCard img {
@@ -121,16 +159,7 @@ body {
     font-size: 1.25rem;
 }
 
-#topRatedRestroBtn {
 
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background: #000;
-    color: #fff;
-    margin: 0 auto 2rem;
-    display: block;
-    cursor: pointer;
-}
 
 /* shimmer ui starts */
 .shimmerRestroCardContainer {

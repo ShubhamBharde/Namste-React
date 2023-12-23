@@ -6,6 +6,9 @@ import Body from "./components/Body";
 const root = ReactDOM.createRoot(document.getElementById("root")); // react-dom root
 
 const App = () => {
+  // console.log(Body);
+  // console.log(<Body />);
+  // console.log(<Body></Body>);
   return (
     <div className="app">
       <Header />
