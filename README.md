@@ -373,20 +373,19 @@ Component()
     - function that updated our state automagically.
       - it needs trigger to start diff algorithm... thats why we use state variables.
 
-
 ## React Two Layer :-
 
 - UI Layer
 
 - Data Layer
 
-- React will keep your UI layer & sync with Data layer
+- React keeps your Data layer & sync with UI layer
 
 - when Data layer Modifiy react re-render component and quickly updated UI, bcz UI layer is Powered by Data layer
 
 ## Logic of UI Update in React ?
 
-- ### simple it will re-render of that component.
+- ### when state updates, react will re-render of that component.
 
 ## Why React is Fast ?
 
@@ -400,9 +399,9 @@ Component()
 
   - it find difference between new virtual dom & old virtual dom & actual update DOM on every render cycle.
 
-- React Reconciliation / React Fiber
+- React Reconciliation Algorithm / React Fiber
 
-  - Reconcillation :- whenever something changes on ui this is known as Reconsillation.
+  - Reconciliation :- whenever something changes on ui this is known as Reconsillation.
 
   - React Fiber :-
     - it is Re-Implementation of React core algorithm.
@@ -411,3 +410,157 @@ Component()
     - React Fiber comes in react 16 which year of 2017
 
 - In short, Every Re-Rendering React will finding diff of two virtual DOM & Update the Original DOM.. thats why React is so Fast .
+
+# Episode-6 : Exploring the World
+
+## Monolithic vs Micro Service :- 🚀🚀
+
+- ### single responsibilty principle :- 🚀🚀
+
+## Real World Data :- Swiggy live API fetch for practice purpose of How Dynamic data comes in Real World
+
+- Real World API has lot of complicated and mess up data that's why we use live swiggy api for Real World industrial practice purpose.
+
+## useEffect() Hook :- after rendering component, it will call callback function
+
+```javascript
+useEffect(() => {
+  return fetchAPI();
+}, []);
+```
+
+- ### if you have to do something, after rendering the component you have write inside useEffect()
+
+## cors policy :- 🚀🚀 Cross Origin Resource Sharing
+
+<!-- - it is mechanism which uses additional http request header
+- same origin then cors easily share resources but if two different port or different origin access resources then browser did not allow share resource.
+- it is http header based mechanism that allow -->
+
+- ### bypass cors error :- download cors chrome extension
+
+## Shimmer UI :- use for Better UX --> first shimmer effect show, then fetch api & rerender
+
+- Page load --> Render Shimmer/component --> fetch api --> Re-Render
+
+- shimmer ui is a fake page skelon until the real data comes for better ux (user experience)
+
+## Conditional Rendering :- based on conditon renders component
+
+## why normal js variables are not use in React?
+
+- normal js variables not update ui
+
+  - because react will not track variables when it is update.
+
+- thats why react gives you useState() hook which returns array & in that array two elements :-
+
+  - initial state variable
+
+  - function that update state and re-render component again
+
+  - whenever state updated, that time React will Re-Render Whole Component but update only difference between two virtual dom ... so hooks are powerful things in React.
+
+## Features :-
+
+- Fetching Live Swiggy API ❤️
+- Config Driven UI
+- Searching Product
+- Filter / Top Rating Product
+- Shimmer UI Effect for Better User Experience (UX) ❤️
+- Mobile Responsiveness
+- Error Handling
+
+# Episode-7 : Finding the path
+
+## Hook :- normal js Utility Function gives by React
+
+- dont take tension of Hooks, Hooks are normal js Utility Function that react gives you.
+
+- useState()
+- useEffect()
+- useContext()
+- useRef()
+- useMemo()
+- useCallback()
+- useParams()
+
+## useEffect() hook :- When you have to do something after rendering component
+
+- it is Utility Function that take two elements.
+
+  - Callback Function :- calls callback function after rendering component..
+
+  - Dependency Array :- optional argument
+
+    - if useEffect() hook has no dependency array, every time it will calls callback function after component render/re-renders.
+
+    - if empty [] dependecy array, then it will call only once after component render.
+
+    - if state [state] dependecy array, then it will call callback function whenver state updated.
+
+## State :- React Variable
+
+- normal js variables can't update UI.
+
+- React will not track js variables.. thats why we need of State variables.
+
+- it is a Powerful Variables that react gives you.
+
+- state is created by useState() hook.
+
+## useState() hook :-
+
+- it is utility function that gives you react.
+
+- useState() hook gives you array that have two elements :-
+
+  - Initial State
+
+  - Function that update state
+
+## 🚀🚀🚀 Note :-
+
+- Whenever State is Updated that time, Reconcillation process trigers and Whole Component is Re-Render and find diff between two virtual DOM, & that diff only updated in Actual DOM... thats why React is so fast for efficient DOM rendering.
+
+## Routing for React App :- we use react-router-dom
+
+- npm i react-router-dom
+
+```react
+import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
+
+const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <App/>,
+      errorElement: <Error/>
+    },
+    {
+
+    }
+  ])
+
+root.render(<RouterProvider router={appRouter} />)
+```
+
+## SPA - Single Page Application
+
+- We are not use normal anchor tags in React .. that normal anchor tags doing reload our whole page.. it is not good for SPA.
+
+- thats why for making SPA we have <Link to=""> </Link> tag in React gives by react-router-dom.
+- behind the scene Link tag will convert in normal anchor tag but not reloading whole page.. it will refresh some portion.
+- thats how SPA Works .
+
+## Two types of Routing :-
+
+- 1. client side routing
+- 2. server side routing
+
+## Dynamic Routing :-
+- using useParams() Hook
+- in routing page <b>":"</b> use for dynamic routes
+
+- create dynamic page for every product card 
+  - we use <b>":"</b> for dynamic route path in App
+  - we use useParams() for dynamic id/name in ProductInfo Component
