@@ -109,7 +109,7 @@ body {
 
 .restroCard {
     width: 270px;
-    height: 450px;
+    /* height: 420px; */
     background-color: #dbdbdb;
     padding: 1rem;
     /* transition: all ease-in 500ms; */

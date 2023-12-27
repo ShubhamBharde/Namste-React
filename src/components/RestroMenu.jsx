@@ -14,7 +14,6 @@ const RestroMenu = () => {
 
   const fetchRestroMenu = async () => {
     const data = await fetch(MENU_API + resId);
-
     const json = await data.json();
 
     // console.log(json.data);
@@ -29,7 +28,7 @@ const RestroMenu = () => {
         card?.card?.card["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
     )
-    .map((k) => k.card.card.info);
+    .map((card) => card?.card?.card?.info);
   // console.log(restroInfo);
 
   const { name, locality, areaName, cuisines, costForTwoMessage, avgRating } =

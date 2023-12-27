@@ -1,3 +1,5 @@
+import { SWIGGY_IMAGE_CDN } from "../utils/constants";
+
 const ItemList = ({ menuItems }) => {
   // console.log(menuItems);
 
@@ -7,12 +9,19 @@ const ItemList = ({ menuItems }) => {
   console.log(items);
 
   return items.map((item) => {
-    const { name, price, defaultPrice, id } = item?.card?.info;
+    const { id, name, price, defaultPrice, description, imageId } =
+      item?.card?.info;
 
     return (
       <div className="itemList" key={id}>
-        <h3 className="dishName">{name}</h3>
-        <h3 className="dishPrice">{(price || defaultPrice) / 100} /-</h3>
+        <div className="itemInfo">
+          <h3 className="dishName">{name}</h3>
+          <h3 className="dishPrice">{(price || defaultPrice) / 100} /-</h3>
+          <p>{description}</p>
+        </div>
+        <div className="itemImage">
+          <img src={SWIGGY_IMAGE_CDN + imageId} alt="" />
+        </div>
       </div>
     );
   });

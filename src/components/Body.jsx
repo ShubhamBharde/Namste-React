@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Body = () => {
   // very imp logic --> don't update ever filterRestro state.. it have whole important data ..only filter purpose use it.
-  const [searchRestro, setSearchRestro] = useState([]);
   const [filterRestro, setFilterRestro] = useState([]);
+  const [listOfRestro, setListOfRestro] = useState([]);
   const [userSearchText, setUserSearchText] = useState("");
-  // console.log(searchRestro)
+  // console.log(listOfRestro)
 
   // first component render then call callback function of useEffect() hook
   useEffect(() => {
@@ -29,7 +29,7 @@ const Body = () => {
       )[0].card?.card?.gridElements?.infoWithStyle?.restaurants;
 
       // console.log(restroCards);
-      setSearchRestro(restroCards);
+      setListOfRestro(restroCards);
       setFilterRestro(restroCards);
     } catch (err) {
       alert("Something Went Wrong! After Some time please check Again...");
@@ -37,10 +37,10 @@ const Body = () => {
     }
   };
 
-  // Shimmer UI effect logic: way 1
+  // Shimmer UI effect logic: way 1 Early return
   // if (filterRestro.length === 0) return <Shimmer />;
 
-  // Shimmer Ui effect logic: way2
+  // Shimmer Ui effect logic: way2 Conditional render
   return filterRestro.length === 0 ? (
     <Shimmer />
   ) : (
@@ -68,7 +68,7 @@ const Body = () => {
                     .includes(userSearchText.toLowerCase())
               );
               // console.log(filterSearchData);
-              setSearchRestro(filterSearchData);
+              setListOfRestro(filterSearchData);
             }}
           >
             Search
@@ -84,7 +84,7 @@ const Body = () => {
                 (restro) => restro.info.avgRating > 4.2
               );
 
-              setSearchRestro(topRatedRestro);
+              setListOfRestro(topRatedRestro);
             }}
           >
             Top Rated Restaurants
@@ -93,8 +93,8 @@ const Body = () => {
       </div>
 
       <div className="restroCardContainer">
-        {searchRestro.map((restro) => (
-          <Link to={"/restaurants/" + restro.info.id} key={restro.info.id}>
+        {listOfRestro.map((restro) => (
+          <Link to={`/restaurants/${restro.info.id}`} key={restro.info.id}>
             <RestroCard resData={restro} />
           </Link>
         ))}
