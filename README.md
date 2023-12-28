@@ -477,13 +477,14 @@ useEffect(() => {
 
 - dont take tension of Hooks, Hooks are normal js Utility Function that react gives you.
 
-- useState()
-- useEffect()
+- useState() // initial state as a argument
+- useEffect() // 2 arguments (callback fn, dependency array)
 - useContext()
 - useRef()
 - useMemo()
 - useCallback()
-- useParams()
+- useParams() provided by react-router-dom // no argument
+- useRouteError() provided by react-router-dom // no argument
 
 ## useEffect() hook :- When you have to do something after rendering component
 
@@ -503,7 +504,7 @@ useEffect(() => {
 
 - normal js variables can't update UI.
 
-- React will not track js variables.. thats why we need of State variables.
+- React will not track js variables & can't re-rendering on UI.. thats why we need of State variables.
 
 - it is a Powerful Variables that react gives you.
 
@@ -511,7 +512,7 @@ useEffect(() => {
 
 ## useState() hook :-
 
-- it is utility function that gives you react.
+- it is utility function, that gives/return an array.
 
 - useState() hook gives you array that have two elements :-
 
@@ -521,11 +522,17 @@ useEffect(() => {
 
 ## 🚀🚀🚀 Note :-
 
-- Whenever State is Updated that time, Reconcillation process trigers and Whole Component is Re-Render and find diff between two virtual DOM, & that diff only updated in Actual DOM... thats why React is so fast for efficient DOM rendering.
+- Whenever State is Updated, that time Reconcillation process trigers, find diff between two virtual DOM and Whole Component is Re-Render and & that diff only updated in Actual DOM... thats why React is so fast for efficient DOM rendering.
 
 ## Routing for React App :- we use react-router-dom
 
-- npm i react-router-dom
+- package install : npm i react-router-dom
+
+- configure routes by <b>createBrowserRouter( array of path objects )</b>
+
+- connect routes with our App using <b>RouterProvider</b> Component used for rendering routes.
+
+- <b>Outlet</b> Component used for different children routes but parent route always remain same.
 
 ```react
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom"
@@ -534,7 +541,17 @@ const appRouter = createBrowserRouter([
     {
       path: "/",
       element: <App/>,
-      errorElement: <Error/>
+      errorElement: <Error/>,
+      children: [
+        {
+          path: "/",
+          element: <Main/>
+        },
+        {
+          path: "/about",
+          element: <About/>
+        }
+      ]
     },
     {
 
@@ -544,23 +561,45 @@ const appRouter = createBrowserRouter([
 root.render(<RouterProvider router={appRouter} />)
 ```
 
-## SPA - Single Page Application
+## SPA - Single Page Application (not loading whole page Always, only some portion refresh )
 
-- We are not use normal anchor tags in React .. that normal anchor tags doing reload our whole page.. it is not good for SPA.
+- We will not use normal anchor tags in React .. those normal anchor tags reload our whole page.. it is not good for SPA.
 
-- thats why for making SPA we have <Link to=""> </Link> tag in React gives by react-router-dom.
-- behind the scene Link tag will convert in normal anchor tag but not reloading whole page.. it will refresh some portion.
-- thats how SPA Works .
+- thats why for making SPA we have <Link to=""> </Link> component which is given to us by react-router-dom.
+
+- behind the scene Link component will convert in normal anchor tag but not reloading whole page.. it will refresh some portion.
+
+- thats how SPA Concept Works .
 
 ## Two types of Routing :-
 
-- 1. client side routing
-- 2. server side routing
+### 1. client side routing :-
 
-## Dynamic Routing :-
-- using useParams() Hook
-- in routing page <b>":"</b> use for dynamic routes
+- we are not making any network calls while moving towards the another page..
+- for making single page application we implement client side routing.
 
-- create dynamic page for every product card 
-  - we use <b>":"</b> for dynamic route path in App
-  - we use useParams() for dynamic id/name in ProductInfo Component
+### 2. server side routing :-
+
+- reload whole page, it will make a network call, fetching files from server & renders.
+
+## Dynamic Routing:- different routes for different productsInfo pages
+
+- ### Dynamic path :- " : " use for dynamic routing path
+
+  - make dynamic routing path using the <b>" : "</b>
+  - ex:- { path : "/products/:id" }
+
+- ### useParams() :- Reading Dynamic id of Dynamic path and return parameters as a object
+
+  - it returns object, that object gives dynamic parameters like id/name as a prop.
+
+- ### Dynamic url Link for each productCard :-
+
+  ```javascript
+  <Link to={`/products/${id}`}>
+    <ProductCard />
+  </Link>
+  ```
+
+  - Link dynamic id to ProductCard Component
+  - ex:- products/123, products/456, products/789

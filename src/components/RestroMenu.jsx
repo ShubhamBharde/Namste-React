@@ -31,8 +31,20 @@ const RestroMenu = () => {
     .map((card) => card?.card?.card?.info);
   // console.log(restroInfo);
 
-  const { name, locality, areaName, cuisines, costForTwoMessage, avgRating } =
-    restroInfo[0];
+  // hardcode restro info
+  // const { name, locality, areaName, cuisines, costForTwoMessage, avgRating } = restroInfo[0]
+
+  restroInfo.map((restro) => {
+    // console.log(restro)
+    return ({
+      name,
+      locality,
+      areaName,
+      cuisines,
+      costForTwoMessage,
+      avgRating,
+    } = restro);
+  });
 
   return (
     <div className="menuPage">
