@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // very imp logic --> don't update ever filterRestro state.. it have whole important data ..only filter purpose use it.
@@ -37,8 +38,8 @@ const Body = () => {
     }
   };
 
-  // Shimmer UI effect logic: way 1 Early return
-  // if (filterRestro.length === 0) return <Shimmer />;
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return <h1>Looks like you're Offline</h1>;
 
   // Shimmer Ui effect logic: way2 Conditional render
   return filterRestro.length === 0 ? (
