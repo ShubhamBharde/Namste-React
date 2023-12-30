@@ -1,26 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import RestroMenuCategory from "./RestroMenuCategory";
-import { MENU_API } from "../utils/constants";
+import useRestroMenu from "../utils/useRestroMenu";
 
 const RestroMenu = () => {
-  const [restroMenu, setRestroMenu] = useState(null);
-  const { resId } = useParams(); // dynamic param gives in form of object
-
-  useEffect(() => {
-    fetchRestroMenu();
-  }, []);
-
-  const fetchRestroMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json();
-
-    // console.log(json.data);
-    setRestroMenu(json.data);
-  };
-
-  if (!restroMenu) return <Shimmer />;
+  const restroMenu = useRestroMenu(); // custom hook
 
   const restroInfo = restroMenu?.cards
     .filter(
@@ -31,20 +14,13 @@ const RestroMenu = () => {
     .map((card) => card?.card?.card?.info);
   // console.log(restroInfo);
 
-  // hardcode restro info
-  // const { name, locality, areaName, cuisines, costForTwoMessage, avgRating } = restroInfo[0]
+  if (!restroMenu) return <Shimmer />;
 
-  restroInfo.map((restro) => {
-    // console.log(restro)
-    return ({
-      name,
-      locality,
-      areaName,
-      cuisines,
-      costForTwoMessage,
-      avgRating,
-    } = restro);
-  });
+  restroInfo.map(
+    (restro) =>
+      ({ name, locality, areaName, cuisines, costForTwoMessage, avgRating } =
+        restro)
+  );
 
   return (
     <div className="menuPage">
