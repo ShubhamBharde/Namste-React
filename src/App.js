@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Cart from "./components/Cart";
 import ErrorElement from "./components/ErrorElement";
-import RestroMenu from "./components/RestroMenu";
+
+const RestroMenu = lazy(() => import("./components/RestroMenu"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Cart = lazy(() => import("./components/Cart"));
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // react-dom root
 
@@ -32,19 +33,35 @@ const appRouting = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId", // make dynamic route path using ":"
-        element: <RestroMenu />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <RestroMenu />
+          </Suspense>
+        ),
       },
     ],
   },

@@ -603,3 +603,50 @@ root.render(<RouterProvider router={appRouter} />)
 
   - Link dynamic id to ProductCard Component
   - ex:- products/123, products/456, products/789
+
+# Episode-9 : Optimising our App
+
+## Single Responsibility Principle :- Important Principle in Computer Science Engineering.
+
+suppose if you have a function, class or any single identity of your code that has only one responsibility to do something.
+
+## Modularity : - distribute code in small small module
+
+You break down your code into different small modules, that makes Reusable, Maintainable & Testable code
+
+## Custom Hook :-
+
+it is just utility function that used for abstract & extract some responsibilty & put inside our custom hook.. so that our component becomes more modular, readable, testable & optimize
+
+ex :- we abstract logic of fetching data & make it as a single responsibility code thats why we use custom hook.
+custom hook help us to write clean code & easy debugging to solve.
+it is a good way to write code.
+
+## user online/offline Internet status :- using online, offline event
+
+- ### window.addEventListener("online/offline", () => {})
+
+## How to make performant Optimize large scale web app :-
+
+- Bundler is taking all your files and converting it to give only one file.. that file size is huge, and it slows down the performance of the web-app.
+- that's why we use split our bundle into logical bundle files.
+
+### Chunking / Code Splitting/ Dynamic Bundling/ Lazy Loading :-
+
+- chunk your bundle file into small small logical bundle files.
+
+## Lazy Loading:-
+
+it is used for Don't load everything at initially stage.. whenever we required that bundle file then only load it.
+
+- ### const Component = lazy(() => import("path"))
+
+- makes light weight
+- optimize
+- fast loading
+
+### Suspence Component :- handle lazy load state asynchrounsly
+
+- ### <Suspense> <Component/> </Suspense>
+
+- when you doing lazy loading that time it gives you error because that time component doing fetch & send response.. it is not available thats why we use Suspend Component for asynchrously handle that , it is given by React.
