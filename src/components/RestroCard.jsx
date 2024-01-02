@@ -14,12 +14,16 @@ const RestroCard = ({ resData }) => {
   } = resData?.info; // ---> object destructuring
 
   return (
-    <div className="restroCard">
-      <img src={SWIGGY_IMAGE_CDN + cloudinaryImageId} alt="restro image" />
-      <h2>{name}</h2>
+    <div className="w-[250px] h-80 my-4 p-4 bg-gray-200 hover:bg-gray-300">
+      <img
+        className="h-40 w-full object-cover rounded-lg "
+        src={SWIGGY_IMAGE_CDN + cloudinaryImageId}
+        alt="restro image"
+      />
+      <h2 className="font-bold text-lg pt-1">{name}</h2>
       <h3>{cuisines.slice(0, 3).join(", ")}</h3>
 
-      <div>
+      <div className="flex justify-between">
         <h4>{deliveryTime} min</h4>
         <h4>{avgRating} ⭐ </h4>
       </div>
