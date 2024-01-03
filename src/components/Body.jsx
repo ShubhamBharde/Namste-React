@@ -3,6 +3,7 @@ import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RESTRAURANT_API } from "../utils/constants";
 
 const Body = () => {
   // very imp logic --> don't update ever filterRestro state.. it have whole important data ..only filter purpose use it.
@@ -18,9 +19,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5898463&lng=73.8264677&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const data = await fetch(RESTRAURANT_API);
       const json = await data.json();
 
       const restroCards = json?.data?.cards.filter(

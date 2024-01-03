@@ -5,18 +5,19 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   // console.log("Component renders");
+  const [menuBtn, setMenuBtn] = useState(false);
   const [userActiveStatus, setUserActiveStatus] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logoContainer">
+    <div className="flex justify-between items-center px-4 bg-slate-400 shadow-lg shadow-slate-700 text-white">
+      <div className="py-3  ">
         <Link to="/">
-          <img src={LOGO_URL} alt="logo" className="logo" />
+          <img src={LOGO_URL} alt="logo" className="w-28" />
         </Link>
       </div>
       <nav>
-        <ul className="navItems">
+        <ul className="hidden md:flex md:gap-x-6 lg:gap-x-12 gap-y-6 md:text-xl lg:text-2xl">
           <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
           <li className="navItem">
             <Link to="/">Home</Link>
@@ -34,10 +35,6 @@ const Header = () => {
             <button
               className="navBtn"
               onClick={() => {
-                // setUserActiveStatus(
-                //   userActiveStatus === "Login" ? "Logout" : "Login"
-                // );
-
                 userActiveStatus === "Login"
                   ? setUserActiveStatus("Logout")
                   : setUserActiveStatus("Login");
@@ -47,6 +44,15 @@ const Header = () => {
             </button>
           </li>
         </ul>
+        <button
+          className="text-4xl block md:hidden"
+          onClick={() => {
+            // console.log("menu toggle click")
+            setMenuBtn(true);
+          }}
+        >
+          ☰
+        </button>
       </nav>
     </div>
   );

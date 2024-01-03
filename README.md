@@ -647,6 +647,56 @@ it is used for Don't load everything at initially stage.. whenever we required t
 
 ### Suspence Component :- handle lazy load state asynchrounsly
 
-- ### <Suspense> <Component/> </Suspense>
+```react
+  <Suspense> <Component/> </Suspense>
+```
 
 - when you doing lazy loading that time it gives you error because that time component doing fetch & send response.. it is not available thats why we use Suspend Component for asynchrously handle that , it is given by React.
+
+# Episode-10 : Jo Dikhta hai, wo Bikta hai
+
+## Styling our App in multiple Ways:-
+
+- normal css
+- sass / scss
+- bootstrap
+- styled components 🚀
+- material ui 🚀
+- tailwind css 🚀🚀
+
+## Tailwindcss :- provides utility class & make customize component
+
+- go on to tailwindcss official document website and install it upon your framework.
+
+### Setup Tailwindcss in your App :-
+
+- install tailwindcss as dev dependency (npm i -D tailwindcss )
+- configure tailwindcss.config.js (npx tailwindcss init)
+- create one index.css file and in that wrote :-
+  - @tailwind base; @tailwind components; @tailwind utilities;
+
+## Most common utility class when we styling our app using tailwindcss :-
+
+- flex
+- justify-between & items-center
+- m-0 & p-0
+- text-white, text-xl, text-center
+- w-0 & h-0
+- border, border-solid, border-black
+
+### use Tailwind CSS IntelliSense Extension for auto suggestion utility classes.
+
+## Tailwind pros & cons :-
+
+### pros :-
+
+- life get easier to style our app
+- fast work
+- it will import only required utility class, when final output comes ❤️
+- lightweight
+- no need of separete css file
+
+### cons :-
+
+- it make code looks ugly, when we apply lot of utility class
+- less readable
