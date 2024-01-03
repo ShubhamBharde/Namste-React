@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestroCard from "./RestroCard";
+import RestroCard, { withPromotedCard } from "./RestroCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -10,7 +10,9 @@ const Body = () => {
   const [filterRestro, setFilterRestro] = useState([]);
   const [listOfRestro, setListOfRestro] = useState([]);
   const [userSearchText, setUserSearchText] = useState("");
-  // console.log(listOfRestro)
+  // console.log(listOfRestro);
+
+  const RestroPromotedCard = withPromotedCard(RestroCard);
 
   // first component render then call callback function of useEffect() hook
   useEffect(() => {
@@ -97,7 +99,11 @@ const Body = () => {
       <div className="flex flex-wrap flex-col items-center sm:flex-row sm:justify-evenly sm:gap-x-10 md:justify-center lg:justify-between    ">
         {listOfRestro.map((restro) => (
           <Link to={`/restaurants/${restro.info.id}`} key={restro.info.id}>
-            <RestroCard resData={restro} />
+            {restro?.info?.avgRating >= 4.5 ? (
+              <RestroPromotedCard resData={restro} />
+            ) : (
+              <RestroCard resData={restro} />
+            )}
           </Link>
         ))}
       </div>

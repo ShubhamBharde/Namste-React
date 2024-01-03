@@ -34,3 +34,17 @@ const RestroCard = ({ resData }) => {
 };
 
 export default RestroCard;
+
+// HOC :- it is function that takes component and return new component of enhaced version.
+export const withPromotedCard = (RestroCard) => {
+  return (prop) => {
+    return (
+      <div className="relative">
+        <RestroCard {...prop} />
+        <label className="absolute top-0 -left-2 bg-black text-white px-3 py-1 rounded-bl-xl ">
+          Promoted
+        </label>
+      </div>
+    );
+  };
+};
