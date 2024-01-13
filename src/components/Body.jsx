@@ -24,7 +24,7 @@ const Body = () => {
       const data = await fetch(RESTRAURANT_API);
       const json = await data.json();
 
-      const restroCards = json?.data?.cards.filter(
+      const restroCards = json?.data?.cards?.filter(
         (card) =>
           card?.card?.card?.gridElements?.infoWithStyle["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle"
@@ -34,8 +34,10 @@ const Body = () => {
       setListOfRestro(restroCards);
       setFilterRestro(restroCards);
     } catch (err) {
-      alert("Something Went Wrong! After Some time please check Again...");
-      console.error("Error is " + err);
+      setTimeout(() => {
+        alert("Something Went Wrong! After Some time please check Again...");
+      }, 1000);
+      console.log("Error is " + err);
     }
   };
 
@@ -97,15 +99,26 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap flex-col items-center sm:flex-row sm:justify-evenly sm:gap-x-10 md:justify-center lg:justify-between    ">
-        {listOfRestro.map((restro) => (
-          <Link to={`/restaurants/${restro.info.id}`} key={restro.info.id}>
-            {restro?.info?.avgRating >= 4.5 ? (
-              <RestroPromotedCard resData={restro} />
-            ) : (
-              <RestroCard resData={restro} />
-            )}
-          </Link>
-        ))}
+        {listOfRestro.length === 0 ? (
+          userSearchText === "" ? (
+            setListOfRestro(filterRestro)
+          ) : (
+            <h1 className="text-lg font-bold text-center mx-auto my-4 md:text-2xl">
+              No data found for {userSearchText.toUpperCase()}.. Please check
+              another Cuisines / Restaurant
+            </h1>
+          )
+        ) : (
+          listOfRestro.map((restro) => (
+            <Link to={`/restaurants/${restro.info.id}`} key={restro.info.id}>
+              {restro?.info?.avgRating >= 4.5 ? (
+                <RestroPromotedCard resData={restro} />
+              ) : (
+                <RestroCard resData={restro} />
+              )}
+            </Link>
+          ))
+        )}
       </div>
     </div>
   );
