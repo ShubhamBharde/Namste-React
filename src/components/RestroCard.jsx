@@ -33,9 +33,7 @@ const RestroCard = ({ resData }) => {
   );
 };
 
-export default RestroCard;
-
-// HOC :- it is function that takes component and return new component of enhaced version.
+// HOC :- it is function that takes component as a input and return new component which is enhaced version of existing component.
 export const withPromotedCard = (RestroCard) => {
   return (prop) => {
     return (
@@ -48,3 +46,5 @@ export const withPromotedCard = (RestroCard) => {
     );
   };
 };
+
+export default RestroCard;

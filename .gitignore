@@ -2,3 +2,7 @@
 /.parcel-cache
 /dist
 /src/utils/restroList.js
+/.firebase
+/.firebaserc
+/firebase.json
+/src/utils/firebase.js

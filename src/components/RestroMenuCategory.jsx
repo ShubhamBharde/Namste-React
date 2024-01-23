@@ -1,51 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestroMenuCategory = ({ menuCategory }) => {
+const RestroMenuCategory = ({
+  menuCategory,
+  showItems,
+  setShowIndex,
+  setShowItems,
+}) => {
   // console.log(menuCategory);
 
-  const restroMenuCategories = menuCategory?.cards
-    .filter((card) => card?.groupedCard)
-    .map((card) => card?.groupedCard?.cardGroupMap?.REGULAR?.cards)
-    .flat(1)
-    .filter(
-      (card) =>
-        card?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
-        card?.card?.card["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
-    );
-  // console.log(restroMenuCategories);
+  // const [showItems, setShowItems] = useState(false);
+
+  const { title, itemCards, categories } = menuCategory;
 
   return (
-    <div className="menu">
-      {restroMenuCategories.map((category) => {
-        const {
-          title: categoryTitle,
-          itemCards,
-          categories,
-        } = category?.card?.card;
+    <div className="w-[90%] bg-slate-200 mx-auto p-4 my-4 shadow-md shadow-slate-600 md:w-9/12 lg:w-[60%] xl:w-6/12 ">
+      {/* accordian header */}
+      <header
+        className="flex justify-between cursor-pointer"
+        onClick={() => {
+          setShowIndex();
+          setShowItems();
+        }}
+      >
+        <h3 className="font-bold text-2xl">
+          {title} (
+          {itemCards
+            ? itemCards?.length
+            : categories.reduce((acc, cat) => cat?.itemCards?.length + acc, 0)}
+          )
+        </h3>
+        <span className="text-2xl">{showItems ? "☝️" : "👇"}</span>
+      </header>
 
-        return (
-          <div key={categoryTitle} className="restroMenuInfo">
-            <div className="restroMenuCategory">
-              <h3>
-                {categoryTitle} (
-                {categories
-                  ? categories.reduce(
-                      (ac, category) => category?.itemCards?.length + ac,
-                      0
-                    )
-                  : itemCards?.length}
-                )
-              </h3>
-              <span>👇</span>
-            </div>
-
-            <ItemList menuItems={category} />
-          </div>
-        );
-      })}
+      {/* accordian body 😡 */}
+      {showItems && (
+        <ItemList
+          menuItems={
+            itemCards
+              ? itemCards
+              : categories.map((category) => category?.itemCards).flat(1)
+          }
+        />
+      )}
     </div>
   );
 };

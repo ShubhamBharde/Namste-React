@@ -700,3 +700,29 @@ it is used for Don't load everything at initially stage.. whenever we required t
 
 - it make code looks ugly, when we apply lot of utility class
 - less readable
+
+# Episode-11 : Data is the new Oil
+
+## HOC (Higher Order Component) :- it is function, that take component as input & returns new enhanced component
+
+- it is a function that takes component as a input & returns new component which is enhanced version of existing component.
+
+- HOC are pure function... means it will not change/modify existing component.. it will return new component which is enhanced version of existing component.
+
+## UI & Data Layer :-
+
+### UI layer is Powered by Data Layer which gives you Dynamic UI
+
+- Data layer consist of your state, props, hooks
+
+- UI layer consist of jsx
+
+## Lifting the state up :-
+- whwn we want handle multiple state that time we lifting our state up
+- sometimes we have to lift the state up if have to controlled the childrens
+- very important interview question
+
+## Controlled & Uncontrolled Component
+- relies on parent component.. controlled by parent component
+- does not relies on any one another component.. it is controlling itself that's why its called as Uncontrolled component... it does not have own state .. it is dependent controlled component via prop
+

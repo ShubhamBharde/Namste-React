@@ -21,7 +21,14 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(RESTRAURANT_API);
+      const data = await fetch(
+        // swiggy api
+        // RESTRAURANT_API
+
+        //  bypass cors proxy api
+        "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D18.5898463%26lng%3D73.8264677%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
+      );
+
       const json = await data.json();
 
       const restroCards = json?.data?.cards?.filter(
@@ -42,7 +49,12 @@ const Body = () => {
   };
 
   const onlineStatus = useOnlineStatus();
-  if (onlineStatus === false) return <h1>Looks like you're Offline</h1>;
+  if (onlineStatus === false)
+    return (
+      <h1 className="text-2xl text-red-500 md:text-4xl text-center mt-10 px-1">
+        Looks like you're Offline, plz Check interent connection{" "}
+      </h1>
+    );
 
   // Shimmer Ui effect logic: way2 Conditional render
   return filterRestro.length === 0 ? (
