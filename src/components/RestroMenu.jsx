@@ -64,8 +64,9 @@ const RestroMenu = () => {
             key={menuCategory?.card?.card?.title}
             menuCategory={menuCategory?.card?.card}
             showItems={index === showIndex && showItems}
-            setShowIndex={() => setShowIndex(index)}
-            setShowItems={() => index === showIndex && setShowItems(!showItems)}
+            setShowIndex={() =>
+              index === showIndex ? setShowIndex(null) : setShowIndex(index)
+            }
           />
         ))}
       </div>

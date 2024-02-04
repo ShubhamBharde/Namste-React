@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestroMenuCategory = ({
-  menuCategory,
-  showItems,
-  setShowIndex,
-  setShowItems,
-}) => {
+const RestroMenuCategory = ({ menuCategory, showItems, setShowIndex }) => {
   // console.log(menuCategory);
 
   // const [showItems, setShowItems] = useState(false);
@@ -18,10 +13,7 @@ const RestroMenuCategory = ({
       {/* accordian header */}
       <header
         className="flex justify-between cursor-pointer"
-        onClick={() => {
-          setShowIndex();
-          setShowItems();
-        }}
+        onClick={() => setShowIndex()}
       >
         <h3 className="font-bold text-2xl">
           {title} (
