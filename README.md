@@ -709,20 +709,54 @@ it is used for Don't load everything at initially stage.. whenever we required t
 
 - HOC are pure function... means it will not change/modify existing component.. it will return new component which is enhanced version of existing component.
 
-## UI & Data Layer :-
+## UI & Data Layer of React :-
 
-### UI layer is Powered by Data Layer which gives you Dynamic UI
+- ### UI layer is Powered by Data Layer which gives you Dynamic UI
 
 - Data layer consist of your state, props, hooks
 
 - UI layer consist of jsx
 
 ## Lifting the state up :-
-- whwn we want handle multiple state that time we lifting our state up
-- sometimes we have to lift the state up if have to controlled the childrens
-- very important interview question
+
+- when we want handle multiple siblings at a time,then need of lifting our state up and give common state to handle all children component.
+
+- sometimes we have to lift the state up if have to controlled the children component.
 
 ## Controlled & Uncontrolled Component
-- relies on parent component.. controlled by parent component
-- does not relies on any one another component.. it is controlling itself that's why its called as Uncontrolled component... it does not have own state .. it is dependent controlled component via prop
+
+- ### Controlled Component :-
+
+  - it is dependent on the parent component, and it's parent component controlling it childrens by using common state.
+
+  - it don't have own state, it dependent on parent component.
+
+- ### Uncontrolled Component :-
+
+  - it have their own state and controlling itself, which does not dependent on parent component.
+
+## props drilling :-
+
+- React has one way data flow from top to bottom.
+
+- when we want passing data from component to another component to another component or passing data to many level nesting component.. it will be known as prop drilling
+
+- prop drilling is very critical issue when your app becomes big & complex app and you want to access & passing data to many components.
+
+- ### many ways to avoid prop drilling :-
+  - React Context
+  - Redux - external state management library
+  - Zustand
+
+## Context provided by React :-
+
+- it avoides prop drilling & it kept data at a central place & easily access anywhere without using props.
+
+- ### React Context Steps :-
+
+  - #### Create --> Provide --> Consume
+
+- createContext() // create or configure
+- <themeContext.Provider value={}> </themeContext.Provider> // provide & Modify Context
+- useContext(themeContext) // consume
 
