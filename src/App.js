@@ -4,6 +4,8 @@ import Header from "./components/Header";
 // import Body from "./components/Body";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorElement from "./components/ErrorElement";
+import { Provider } from "react-redux";
+import Store from "./utils/store/store";
 
 const RestroMenu = lazy(() => import("./components/RestroMenu"));
 const About = lazy(() => import("./components/About"));
@@ -15,10 +17,12 @@ const root = ReactDOM.createRoot(document.getElementById("root")); // react-dom 
 
 const App = () => {
   return (
+    <Provider store={Store}>
     <div className="app">
       <Header />
       <Outlet />
     </div>
+    </Provider>
   );
 };
 

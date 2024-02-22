@@ -3,11 +3,14 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { FaAtom, FaBars, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [menuToggleBtn, setMenuToggleBtn] = useState(false);
   const [userActiveStatus, setUserActiveStatus] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const cartItems = useSelector(store => store.cart.items)
+  console.log(cartItems)
 
   return (
     <header className="flex justify-between items-center px-4 bg-slate-400 shadow-lg shadow-slate-700 text-white">
@@ -34,8 +37,8 @@ const Header = () => {
           <li className="navItem">
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="navItem">
-            <Link to="/cart">Cart</Link>
+          <li className="navItem font-bold">
+            <Link to="/cart">Cart - {cartItems.length} Items</Link>
           </li>
           <li className="navItem">
             <button

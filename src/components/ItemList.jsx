@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
 import { SWIGGY_IMAGE_CDN } from "../utils/constants";
+import { addItem } from "../utils/store/cartSlice";
 
 const ItemList = ({ menuItems }) => {
   // console.log(menuItems);
+  const dispatch = useDispatch();
+  const handleAddItem = (items) => {
+    dispatch(addItem(items));
+  };
 
   return (
     <div>
@@ -24,7 +30,10 @@ const ItemList = ({ menuItems }) => {
                 src={SWIGGY_IMAGE_CDN + imageId}
                 className="w-[85%] m-auto object-cover max-h-[160px] relative"
               />
-              <button className="bg-gray-900 bg-opacity-90 text-white px-4 py-1 w-4/12 absolute left-0 right-0 bottom-0 mx-auto rounded-md sm:w-6/12 sm:-bottom-3 ">
+              <button
+                className="bg-gray-900 bg-opacity-90 text-white px-4 py-1 w-4/12 absolute left-0 right-0 bottom-0 mx-auto rounded-md sm:w-6/12 sm:-bottom-3 "
+                onClick={() => handleAddItem(item)}
+              >
                 ADD
               </button>
             </div>

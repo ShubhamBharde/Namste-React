@@ -752,11 +752,46 @@ it is used for Don't load everything at initially stage.. whenever we required t
 
 - it avoides prop drilling & it kept data at a central place & easily access anywhere without using props.
 
-- ### React Context Steps :-
+### React Context Steps :-
 
-  - #### Create --> Provide --> Consume
+- #### Create --> Provide --> Consume
 
 - createContext() // create or configure
-- <themeContext.Provider value={}> </themeContext.Provider> // provide & Modify Context
+- <themeContext.Provider value={}> </themeContext.Provider> // provide & Modify Context using value attribute
 - useContext(themeContext) // consume
 
+# Episode-12: Let's build our store
+
+## Redux Toolkit :- State Management Library
+
+- external state management library ..
+- standard way to write redux logic
+- it is a big object form of store at a central place
+- logical separation file created that called slices of store
+- used for easy debugging
+
+### Redux Architechture :- behind the scene redux Process/ Algorithm :-
+
+- when we clicked on add button
+- it will dispatch an action. [useDispatch(action)]
+- which calls the reducer function
+- and update the slice of store
+- then we will subsribe a component to store using selector. [useSelector()]
+
+## Redux Toolkit Steps :-
+
+- install packages :- @reduxjs/toolkit and react-redux
+
+- ### create/configure store --> configureStore()
+
+  - ### create slices of store --> createSlice({name, initialState, reducers})
+
+- ### provide to our app --> <Provider store={}> </Provider>
+
+- ### consume by using hook --> useDispatch() & useSelector()
+
+## Immer :-
+
+- it is js tiny library that redux toolkit uses for work with immutable state.. it is take original state and create new state and gives/returns new state.
+
+- redux says don't mutate the state but newer version of redux toolkit have to mutate the state because of the immer library ... behind the scene redux toolkit uses immer library to work with immutable state .
